@@ -34,6 +34,7 @@
     :root{
       scroll-behavior: smooth;
     }
+
     .input{
       margin-top:.25rem;width:100%;border-radius:.75rem;border:1px solid #383b40;
       background:#232528;padding:.5rem .75rem;color:#f5f6f7;outline:none;
@@ -45,7 +46,11 @@
     dialog.lightbox::backdrop{background:rgba(0,0,0,.5)}
     .lb-btn{position:absolute;top:50%;transform:translateY(-50%);padding:.5rem .75rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(20,21,24,.35);cursor:pointer}
     .lb-prev{left:1rem}.lb-next{right:1rem}
-    .lb-close{position:absolute;top:1rem;right:1rem;padding:.4rem .6rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(20,21,24,.35);cursor:pointer}
+    .lb-close{
+      position:absolute;top:1rem;right:1rem;z-index:60;
+      padding:.4rem .6rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.25);
+      color:#fff;background:rgba(20,21,24,.35);cursor:pointer
+    }
     .thumbs::-webkit-scrollbar{height:6px}.thumbs::-webkit-scrollbar-thumb{background:#fff;border-radius:4px}
   </style>
 </head>
@@ -156,14 +161,24 @@
 
   <!-- Lightbox -->
   <dialog id="lightbox" class="lightbox">
+    <!-- Botón cerrar con z-index alto -->
     <button class="lb-close" aria-label="Cerrar">&times;</button>
+
+    <!-- Paginación -->
     <button class="lb-btn lb-prev" aria-label="Anterior">&#10094;</button>
     <button class="lb-btn lb-next" aria-label="Siguiente">&#10095;</button>
 
-    <div class="absolute right-4 top-4 z-50 flex gap-2">
-      <button id="zoomOut" class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Alejar">−</button>
-      <button id="zoomIn"  class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Acercar">+</button>
-      <button id="zoomReset" class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Reiniciar">⟲</button>
+    <!-- Controles de zoom: arriba a la IZQUIERDA para no chocar con la X -->
+    <div class="absolute left-4 top-4 z-50 flex gap-2 pointer-events-auto">
+      <button id="zoomOut"
+              class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20"
+              aria-label="Alejar">−</button>
+      <button id="zoomIn"
+              class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20"
+              aria-label="Acercar">+</button>
+      <button id="zoomReset"
+              class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20"
+              aria-label="Reiniciar">⟲</button>
     </div>
 
     <div class="grid h-full w-full place-items-center p-4">
@@ -407,7 +422,6 @@
       }
 
       function renderGallery(g){
-        // Mosaico
         const container = document.getElementById('mosaic');
         if(!container) return;
         const images = g.images||[];
@@ -442,11 +456,9 @@
         container.innerHTML='';
         container.appendChild(grid);
 
-        // Lightbox dataset
         window.__GALLERY_ITEMS = images.map(i=>({src:i.src, alt:i.alt||''}));
       }
 
-      // Lightbox simple (zoom y navegación)
       function initLightbox(){
         const dialog = document.getElementById('lightbox');
         const imgEl  = document.getElementById('lightbox-img');
@@ -561,7 +573,6 @@
         const map=document.getElementById('bookingMapUrl'); if(map) map.href=b.mapUrl;
         setText('#bookingNote', b.note);
 
-        // demo submit
         const form=document.getElementById('bookingForm');
         if(form){
           form.addEventListener('submit', (e)=>{
@@ -615,13 +626,11 @@
       }
 
       function start(){
-        // Corre ya; si algo aún no está en el DOM, reintenta un par de veces.
         let tries=0;
         (function tick(){
-          try{ renderAll(BARBER_CONTENT); }catch(e){ /* swallow */ }
-          // Validar que al menos Hero y Services pintaron:
+          try{ renderAll(BARBER_CONTENT); }catch(e){}
           if(document.getElementById('heroTitle')?.textContent && document.getElementById('servicesGrid')?.children.length){
-            return; // OK
+            return;
           }
           if(++tries>10) return;
           setTimeout(tick, 80);
