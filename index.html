@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="barber">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Imperium Barber — Landing</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50:"#eaf1ff",100:"#d3e3ff",200:"#a8c6ff",300:"#7aa9ff",400:"#4c8bff",
+              500:"#1f6dff",600:"#1756d1",700:"#1243a3",800:"#0d2f75",900:"#081f4a",950:"#040f25",
+            },
+            accent: {
+              50:"#ffeaea",100:"#ffd5d5",200:"#ffaaaa",300:"#ff7f7f",400:"#ff5555",
+              500:"#ef2d2d",600:"#c42020",700:"#991818",800:"#6f1010",900:"#490a0a",950:"#240505",
+            },
+            neutral: {
+              50:"#f5f6f7",100:"#e9ebee",200:"#d3d6dc",300:"#b5bac4",400:"#8f949c",
+              500:"#6c717a",600:"#51555c",700:"#383b40",800:"#232528",900:"#141518",950:"#090a0b",
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root{
+      scroll-behavior: smooth;
+    }
+    .input{
+      margin-top:.25rem;width:100%;border-radius:.75rem;border:1px solid #383b40;
+      background:#232528;padding:.5rem .75rem;color:#f5f6f7;outline:none;
+    }
+    .input::placeholder{color:#b5bac4;opacity:1}
+    .input:focus{border-color:#4c8bff}
+
+    dialog.lightbox{width:100%;height:100%;padding:0;border:0;background:rgba(0,0,0,.85)}
+    dialog.lightbox::backdrop{background:rgba(0,0,0,.5)}
+    .lb-btn{position:absolute;top:50%;transform:translateY(-50%);padding:.5rem .75rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(20,21,24,.35);cursor:pointer}
+    .lb-prev{left:1rem}.lb-next{right:1rem}
+    .lb-close{position:absolute;top:1rem;right:1rem;padding:.4rem .6rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(20,21,24,.35);cursor:pointer}
+    .thumbs::-webkit-scrollbar{height:6px}.thumbs::-webkit-scrollbar-thumb{background:#fff;border-radius:4px}
+  </style>
+</head>
+
+<body class="min-h-screen bg-primary-950 text-neutral-50">
+  <!-- ============= HEADER ============= -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-primary-950/60">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+      <a href="#" class="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none" aria-hidden class="shrink-0">
+          <rect x="5" y="5" width="90" height="90" rx="18" class="fill-primary-800"></rect>
+          <path d="M25 60 L40 35 L50 55 L60 35 L75 60" class="stroke-primary-50" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="50" cy="72" r="4" class="fill-primary-100"></circle>
+        </svg>
+        <span id="brandName" class="text-lg font-semibold tracking-wide text-primary-50"></span>
+      </a>
+      <nav id="navDesktop" class="hidden md:flex gap-6"></nav>
+      <div class="hidden md:block">
+        <a id="ctaDesktop" href="#" class="rounded-xl bg-primary-100 px-4 py-2 text-primary-900 font-semibold hover:opacity-90"></a>
+      </div>
+      <button id="menuBtn" aria-label="Abrir menú" class="md:hidden relative h-5 w-6">
+        <span id="b1" class="absolute left-0 top-1 block h-0.5 w-6 bg-primary-50 transition"></span>
+        <span id="b2" class="absolute left-0 top-2.5 block h-0.5 w-6 bg-primary-50 transition"></span>
+        <span id="b3" class="absolute left-0 top-4 block h-0.5 w-6 bg-primary-50 transition"></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-primary-700 bg-primary-950/90">
+      <nav id="navMobile" class="px-4 py-4 space-y-2"></nav>
+      <div class="px-4 pb-4">
+        <a id="ctaMobile" href="#" class="mt-3 block rounded-xl bg-primary-100 px-4 py-2 text-center text-primary-900 font-semibold"></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= HERO ============= -->
+  <section class="relative overflow-hidden py-20 md:py-28">
+    <div aria-hidden class="pointer-events-none absolute inset-0 -z-10 opacity-20"
+         style="background: radial-gradient(600px 300px at 15% 20%, #0d2f75, transparent 70%);"></div>
+    <div aria-hidden class="pointer-events-none absolute right-0 top-0 -z-10 h-[140%] w-[38%] translate-y-[-12%] opacity-30"
+         style="background-image: repeating-linear-gradient(45deg,#1243a3 0 14px,#c42020 14px 28px,#141518 28px 42px); filter: blur(2px);"></div>
+
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 md:grid-cols-2">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary-700 bg-neutral-900/60 px-3 py-1 text-xs text-primary-200">
+          <span class="inline-block h-2 w-2 rounded-full bg-primary-500"></span>
+          <span>Barbería de autor</span>
+        </div>
+
+        <h1 class="mt-4 text-4xl font-extrabold leading-tight text-neutral-50 md:text-6xl">
+          <span id="heroTitle"></span> <span id="heroHighlight" class="text-accent-400"></span>
+        </h1>
+
+        <p id="heroDesc" class="mt-6 max-w-xl text-lg text-neutral-200"></p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a id="heroCta1" href="#"
+             class="rounded-2xl bg-primary-600 px-6 py-3 font-semibold text-neutral-50 shadow-lg shadow-primary-900/30 transition hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400"></a>
+          <a id="heroCta2" href="#"
+             class="rounded-2xl border border-accent-600 px-6 py-3 font-semibold text-neutral-50 transition hover:bg-accent-600/10 focus:outline-none focus:ring-2 focus:ring-accent-400"></a>
+        </div>
+
+        <div id="heroBadges" class="mt-8 flex flex-wrap items-center gap-3 text-sm"></div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-2 -z-10 rounded-[1.75rem]"
+             style="background: linear-gradient(135deg, #1756d1, #c42020); filter: blur(12px); opacity: .35;"></div>
+        <div class="overflow-hidden rounded-3xl border border-neutral-700 bg-neutral-900 shadow-2xl">
+          <img id="heroImg" src="" alt="" class="h-full w-full object-cover" loading="eager" />
+        </div>
+        <div class="absolute -left-4 -top-4 rounded-full border border-neutral-700 bg-neutral-900/80 px-3 py-1 text-xs font-semibold text-neutral-200 backdrop-blur">Since • 2015</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SERVICIOS ============= -->
+  <section id="servicios" class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mb-10 flex items-end justify-between">
+        <h2 class="text-3xl font-bold">Servicios</h2>
+        <a href="#precios" class="text-sm text-primary-300 hover:text-neutral-50">Ver tabla de precios →</a>
+      </div>
+      <div id="servicesGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
+    </div>
+  </section>
+
+  <!-- ============= GALERÍA ============= -->
+  <section id="galeria" class="relative border-y border-neutral-700 bg-neutral-900 py-20 md:py-24">
+    <div aria-hidden class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-20 opacity-15"
+         style="background-image: repeating-linear-gradient(45deg,#0d2f75 0 12px,#c42020 12px 24px,#141518 24px 36px);
+                mask-image: linear-gradient(to bottom, black, transparent);
+                -webkit-mask-image: linear-gradient(to bottom, black, transparent);"></div>
+
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mb-8 flex items-center justify-between">
+        <h2 class="text-3xl font-bold text-neutral-50">Galería</h2>
+        <span class="hidden h-[3px] w-32 rounded-full bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 md:inline-block"></span>
+      </div>
+
+      <section id="mosaic" class="py-6"></section>
+
+      <section id="videos" class="mt-4 hidden">
+        <h3 class="mb-3 text-base font-semibold">Videos</h3>
+        <div id="videosGrid" class="grid gap-4 sm:grid-cols-2"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" class="lightbox">
+    <button class="lb-close" aria-label="Cerrar">&times;</button>
+    <button class="lb-btn lb-prev" aria-label="Anterior">&#10094;</button>
+    <button class="lb-btn lb-next" aria-label="Siguiente">&#10095;</button>
+
+    <div class="absolute right-4 top-4 z-50 flex gap-2">
+      <button id="zoomOut" class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Alejar">−</button>
+      <button id="zoomIn"  class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Acercar">+</button>
+      <button id="zoomReset" class="rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white hover:bg-white/20" aria-label="Reiniciar">⟲</button>
+    </div>
+
+    <div class="grid h-full w-full place-items-center p-4">
+      <div id="viewer" class="relative max-h-[90vh] max-w-[95vw] overflow-hidden rounded-xl">
+        <img id="lightbox-img" src="" alt="" class="select-none object-contain" style="max-height:90vh;max-width:95vw;transform:translate(0px,0px) scale(1);" />
+      </div>
+    </div>
+
+    <div class="absolute bottom-4 left-0 right-0 mx-auto w-[92vw] max-w-5xl rounded-lg bg-black/25 px-3 py-2 backdrop-blur">
+      <div id="thumbs" class="thumbs flex gap-3 overflow-x-auto"></div>
+    </div>
+  </dialog>
+
+  <!-- ============= PRECIOS ============= -->
+  <section id="precios" class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="mb-10 text-3xl font-bold">Precios</h2>
+      <div id="pricingGrid" class="grid gap-6 md:grid-cols-3"></div>
+    </div>
+  </section>
+
+  <!-- ============= RESERVA ============= -->
+  <section id="reserva" class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mb-10">
+        <h2 id="bookingHeading" class="text-3xl font-bold"></h2>
+        <p class="mt-2 max-w-2xl text-neutral-200">
+          <span id="bookingIntroText"></span>
+          <a id="bookingPhone" class="underline" href="#"></a>.
+        </p>
+      </div>
+
+      <div class="grid items-start gap-8 md:grid-cols-2">
+        <form id="bookingForm" class="space-y-4 rounded-3xl border border-neutral-700 bg-neutral-900 p-6">
+          <div>
+            <label for="nombre" class="block text-sm text-neutral-300">Nombre</label>
+            <input id="nombre" name="nombre" required placeholder="Tu nombre" class="input" />
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div>
+              <label for="telefono" class="block text-sm text-neutral-300">Teléfono</label>
+              <input id="telefono" name="telefono" required placeholder="WhatsApp" class="input" />
+            </div>
+            <div>
+              <label for="servicio" class="block text-sm text-neutral-300">Servicio</label>
+              <select id="bookingServiceSelect" name="servicio" class="input"></select>
+            </div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2">
+            <div>
+              <label for="fecha" class="block text-sm text-neutral-300">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required class="input" />
+            </div>
+            <div>
+              <label for="hora" class="block text-sm text-neutral-300">Hora</label>
+              <input id="hora" name="hora" type="time" required class="input" />
+            </div>
+          </div>
+          <div>
+            <label for="notas" class="block text-sm text-neutral-300">Notas (opcional)</label>
+            <textarea id="notas" name="notas" placeholder="Ej. estilo, referencias, etc." class="input min-h-[120px]"></textarea>
+          </div>
+          <button type="submit" class="w-full rounded-xl bg-primary-100 px-4 py-3 font-semibold text-primary-900 transition hover:opacity-90">
+            Enviar solicitud
+          </button>
+          <p id="bookingNote" class="text-xs text-neutral-400"></p>
+        </form>
+
+        <div class="space-y-6">
+          <div class="overflow-hidden rounded-3xl border border-neutral-700">
+            <img id="bookingImage" src="" alt="" class="h-64 w-full object-cover" />
+          </div>
+          <div class="rounded-3xl border border-neutral-700 bg-neutral-900 p-6">
+            <h3 class="text-lg font-semibold">Horarios</h3>
+            <ul id="bookingHours" class="mt-3 grid grid-cols-2 gap-2 text-sm text-neutral-300 md:grid-cols-3"></ul>
+            <div class="mt-4 text-sm text-neutral-300">
+              <p id="bookingAddress"></p>
+              <a id="bookingMapUrl" class="underline" target="_blank" rel="noreferrer" href="#">Ver en Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section id="faq" class="border-t border-neutral-700 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <h2 class="mb-8 text-3xl font-bold">Preguntas frecuentes</h2>
+      <div id="faqGrid" class="grid gap-4 md:grid-cols-2"></div>
+    </div>
+  </section>
+
+  <!-- ============= FOOTER ============= -->
+  <footer class="border-t border-primary-700">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-primary-300">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" aria-hidden class="shrink-0">
+          <rect x="5" y="5" width="90" height="90" rx="18" class="fill-primary-800"></rect>
+          <path d="M25 60 L40 35 L50 55 L60 35 L75 60" class="stroke-primary-50" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="50" cy="72" r="4" class="fill-primary-100"></circle>
+        </svg>
+        <span>© <span id="footerYear"></span> <span id="footerBrand"></span></span>
+      </div>
+      <div id="footerSocial" class="flex items-center gap-4 text-sm text-primary-200"></div>
+    </div>
+  </footer>
+
+  <!-- ============= CONTENIDO ÚNICO ============= -->
+  <script>
+    const BARBER_CONTENT = {
+      header: {
+        brand: 'Imperium Barber',
+        nav: [
+          { url: '#servicios', title: 'Servicios' },
+          { url: '#galeria',  title: 'Galería'   },
+          { url: '#precios',  title: 'Precios'   },
+          { url: '#faq',      title: 'FAQ'       },
+        ],
+        cta: { url: '#reserva', title: 'Reservar cita' },
+      },
+      hero: {
+        title: 'Corte de precisión.',
+        highlight: 'Estilo',
+        description: 'Fades limpios, barbas definidas y servicio puntual. Agenda en minutos y sal con un look que impone.',
+        image: { src: '/img/image.png', alt: 'Barbero trabajando en un fade impecable' },
+        ctaPrimary:   { url: '#reserva', title: 'Reservar ahora' },
+        ctaSecondary: { url: '#precios', title: 'Ver precios' },
+        badges: ['★★★★★ 4.9 / 5', '+10 años de experiencia', 'Wi-Fi • Café • Buen rap'],
+      },
+      services: [
+        { title:'Corte Clásico', desc:'Tijera y máquina. Acabado mate o brillo natural.', price:'$250', img:{ src:'/img/image.png', alt:'Corte clásico en barbería' } },
+        { title:'Skin Fade', desc:'Degradado al ras. Transición limpia, líneas definidas.', price:'$320', img:{ src:'/img/image.png', alt:'Skin fade con transición suave' } },
+        { title:'Barba & Afeitado', desc:'Moldeado, toalla caliente y acabado con navaja.', price:'$200', img:{ src:'/img/image.png', alt:'Arreglo de barba con navaja' } },
+        { title:'Paquete Premium', desc:'Corte + barba + mascarilla. Rituales y detalle extra.', price:'$450', img:{ src:'/img/image.png', alt:'Servicio premium de barbería' } },
+      ],
+      gallery: {
+        heading: 'Galería',
+        images: [
+          { src:'/img/image.png', alt:'Trabajo 1' },
+          { src:'/img/image.png', alt:'Trabajo 2' },
+          { src:'/img/image.png', alt:'Trabajo 3' },
+          { src:'/img/image.png', alt:'Trabajo 4' },
+          { src:'/img/image.png', alt:'Trabajo 5' },
+          { src:'/img/image.png', alt:'Trabajo 6' },
+        ],
+        videos: [],
+      },
+      pricing: {
+        heading: 'Precios',
+        cta: { url:'#reserva', title:'Reservar' },
+        plans: [
+          { name:'Corte', price:'$250', features:['Consulta rápida','Peinado incluido','Productos mate o brillo'] },
+          { name:'Corte + Barba', price:'$400', highlight:true, features:['Fade / Tijera','Moldeado de barba','Toalla caliente'] },
+          { name:'Premium', price:'$550', features:['Corte + barba','Mascarilla / Vapor','Aceites y acabado'] },
+        ],
+      },
+      booking: {
+        heading: 'Reserva en minutos',
+        intro: 'Completa el formulario y te confirmamos por WhatsApp. Si prefieres, llama al',
+        phone: '+528120000000',
+        image: { src:'/img/image.png', alt:'Interior de la barbería' },
+        services: ['Corte','Corte + Barba','Premium'],
+        hours: ['Lun–Vie: 10:00–20:00','Sáb: 10:00–18:00','Dom: Cerrado'],
+        address: 'Av. Reforma 123, Centro, Monterrey, N.L.',
+        mapUrl: 'https://maps.google.com/?q=Av.+Reforma+123,+Monterrey',
+        note: 'Al enviar aceptas nuestras políticas y el uso de tus datos para contactarte.',
+      },
+      faq: {
+        heading: 'Preguntas frecuentes',
+        items: [
+          { q:'¿Aceptan walk-ins?', a:'Sí, pero la prioridad es para citas. Te recomendamos reservar para evitar espera.' },
+          { q:'¿Qué métodos de pago aceptan?', a:'Efectivo, tarjeta y transferencias.' },
+          { q:'¿Puedo llevar referencia de corte?', a:'Claro. Trae fotos o muéstranos tu estilo ideal y te asesoramos.' },
+          { q:'¿Tienen estacionamiento?', a:'Sí, 2 lugares frente al local y estacionamientos cercanos.' },
+        ],
+      },
+      footer: {
+        year: new Date().getFullYear(),
+        brand: 'Imperium Barber',
+        social: [{ url:'#', title:'Instagram' },{ url:'#', title:'TikTok' },{ url:'#', title:'WhatsApp' }],
+      },
+    };
+  </script>
+
+  <!-- ============= RENDER ÚNICO ============= -->
+  <script>
+    (function(){
+      const $ = (s)=>document.querySelector(s);
+      const setText=(s,v)=>{const el=$(s); if(el) el.textContent=v};
+      const setAttr=(s,a,v)=>{const el=$(s); if(el && v!=null) el.setAttribute(a,v)};
+      const setLink=(s,obj)=>{const el=$(s); if(el && obj){ el.href=obj.url; el.textContent=obj.title; }};
+      const renderInto=(sel,arr,factory)=>{const el=$(sel); if(!el) return; el.innerHTML=''; (arr||[]).forEach((it,i)=>el.appendChild(factory(it,i)));};
+
+      function renderHeader(c){
+        setText('#brandName', c.brand);
+        setLink('#ctaDesktop', c.cta);
+        setLink('#ctaMobile', c.cta);
+        const mk=(mobile)=>l=>{
+          const a=document.createElement('a');
+          a.href=l.url; a.textContent=l.title;
+          a.className=mobile?'block rounded-lg px-3 py-2 text-primary-100 hover:bg-primary-800':'text-primary-100 hover:text-primary-50 text-sm';
+          return a;
+        };
+        renderInto('#navDesktop', c.nav, mk(false));
+        renderInto('#navMobile',  c.nav, mk(true));
+      }
+
+      function renderHero(h){
+        setText('#heroTitle', h.title);
+        setText('#heroHighlight', h.highlight);
+        setText('#heroDesc', h.description);
+        setAttr('#heroImg','src',h.image?.src);
+        setAttr('#heroImg','alt',h.image?.alt||'');
+        setLink('#heroCta1', h.ctaPrimary);
+        setLink('#heroCta2', h.ctaSecondary);
+        const wrap = document.getElementById('heroBadges');
+        if(wrap){ wrap.innerHTML=''; (h.badges||[]).forEach(t=>{ const s=document.createElement('span'); s.className='rounded-full border border-neutral-700 bg-neutral-900/50 px-3 py-1 text-neutral-300'; s.textContent=t; wrap.appendChild(s); });}
+      }
+
+      function renderServices(items){
+        renderInto('#servicesGrid', items, (s)=>{
+          const card=document.createElement('article');
+          card.className='group overflow-hidden rounded-3xl border border-neutral-700 bg-neutral-900 transition hover:-translate-y-1 hover:shadow-xl';
+          card.innerHTML=`
+            <div class="relative aspect-video overflow-hidden">
+              <img src="${s.img?.src}" alt="${s.img?.alt||s.title}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"/>
+              ${s.price?`<span class="absolute left-3 top-3 rounded-full bg-accent-600/90 px-3 py-1 text-xs font-bold text-neutral-50 shadow">${s.price}</span>`:''}
+            </div>
+            <div class="space-y-2 p-5">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-xl font-semibold text-neutral-50">${s.title}</h3>
+                ${s.price?`<span class="hidden rounded-full border border-accent-600 px-2 py-0.5 text-xs font-semibold text-neutral-100 md:inline">${s.price}</span>`:''}
+              </div>
+              <p class="text-sm text-neutral-300">${s.desc||''}</p>
+            </div>
+            <div aria-hidden class="h-1 opacity-60" style="background:linear-gradient(90deg,#1243a3,#c42020,#232528)"></div>
+          `;
+          return card;
+        });
+      }
+
+      function renderGallery(g){
+        // Mosaico
+        const container = document.getElementById('mosaic');
+        if(!container) return;
+        const images = g.images||[];
+        const maxVisible=4, visible=images.slice(0,maxVisible), extraCount=Math.max(0,images.length-maxVisible);
+        const grid=document.createElement('div');
+        grid.className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[150px]";
+
+        visible.forEach((img,idx)=>{
+          const btn=document.createElement('button');
+          btn.className=['group relative cursor-pointer overflow-hidden rounded-2xl','border border-primary-200/60 bg-white shadow-sm','transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none','focus-visible:ring-2 focus-visible:ring-primary-500/60'].join(' ');
+          if(idx===0){ btn.style.gridRowEnd='span 2'; btn.style.gridColumnEnd='span 2'; }
+          btn.setAttribute('aria-label',`Ver imagen ${idx+1}`);
+          btn.addEventListener('click',()=>openLightbox(idx));
+          btn.innerHTML=`
+            <div class="relative w-full h-full">
+              <img src="${img.src}" alt="${img.alt||`Imagen ${idx+1}`}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] group-hover:saturate-110"/>
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <span class="pointer-events-none absolute inset-x-3 bottom-3 rounded-lg bg-accent-500/95 px-2 py-1 text-[11px] font-semibold text-white shadow-sm ring-1 ring-white/10 opacity-0 transition-all duration-300 group-hover:opacity-100">Ver foto</span>
+            </div>`;
+          grid.appendChild(btn);
+        });
+
+        if(extraCount>0){
+          const btnAll=document.createElement('button');
+          btnAll.className=['relative cursor-pointer overflow-hidden rounded-2xl','border border-primary-200/60 bg-white shadow-sm','transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none','focus-visible:ring-2 focus-visible:ring-primary-500/60','flex items-center justify-center'].join(' ');
+          btnAll.setAttribute('aria-label','Ver todas las fotos');
+          btnAll.addEventListener('click',()=>openLightbox(maxVisible));
+          btnAll.innerHTML=`<div class="absolute inset-0 bg-primary-900/5 opacity-0 transition-opacity duration-300 hover:opacity-100"></div><span class="text-base font-semibold text-primary-900">+${extraCount} fotos</span>`;
+          grid.appendChild(btnAll);
+        }
+
+        container.innerHTML='';
+        container.appendChild(grid);
+
+        // Lightbox dataset
+        window.__GALLERY_ITEMS = images.map(i=>({src:i.src, alt:i.alt||''}));
+      }
+
+      // Lightbox simple (zoom y navegación)
+      function initLightbox(){
+        const dialog = document.getElementById('lightbox');
+        const imgEl  = document.getElementById('lightbox-img');
+        const viewer = document.getElementById('viewer');
+        const btnClose = dialog.querySelector('.lb-close');
+        const btnPrev  = dialog.querySelector('.lb-prev');
+        const btnNext  = dialog.querySelector('.lb-next');
+        const thumbsEl = document.getElementById('thumbs');
+        const zoomInBtn = document.getElementById('zoomIn');
+        const zoomOutBtn = document.getElementById('zoomOut');
+        const zoomResetBtn = document.getElementById('zoomReset');
+
+        let items = window.__GALLERY_ITEMS || [];
+        let idx=0, scale=1, tx=0, ty=0, dragging=false, sx=0, sy=0, stx=0, sty=0;
+
+        function apply(){ imgEl.style.transform=`translate(${tx}px, ${ty}px) scale(${scale})`; }
+        function setImage(i){
+          idx=i; const it=items[idx]; if(!it) return;
+          imgEl.src=it.src; imgEl.alt=it.alt||''; scale=1; tx=0; ty=0; apply();
+          highlightThumb(); ensureThumbInView();
+          btnPrev.style.display=(idx>0)?'block':'none';
+          btnNext.style.display=(idx<items.length-1)?'block':'none';
+        }
+        window.openLightbox = (i)=>{ setImage(i||0); dialog.showModal(); document.body.style.overflow='hidden'; };
+        function close(){ dialog.close(); document.body.style.overflow=''; }
+        function prev(){ if(idx>0) setImage(idx-1); }
+        function next(){ if(idx<items.length-1) setImage(idx+1); }
+
+        function renderThumbs(){
+          thumbsEl.innerHTML='';
+          items.forEach((it,i)=>{
+            const b=document.createElement('button');
+            b.className="relative h-12 w-20 flex-shrink-0 overflow-hidden rounded-md";
+            b.addEventListener('click',()=>setImage(i));
+            b.innerHTML=`<img src="${it.src}" alt="${it.alt||`Miniatura ${i+1}`}" class="absolute inset-0 h-full w-full object-cover"/>`;
+            thumbsEl.appendChild(b);
+          });
+        }
+        function highlightThumb(){
+          [...thumbsEl.children].forEach((el,i)=>{
+            el.classList.toggle('ring-2',i===idx);
+            el.classList.toggle('ring-white',i===idx);
+            el.classList.toggle('scale-110',i===idx);
+            el.style.opacity=i===idx?'1':'.7';
+          });
+        }
+        function ensureThumbInView(){
+          const c=thumbsEl; const el=c.children[idx]; if(!el) return;
+          const target = el.offsetLeft - (c.clientWidth - el.offsetWidth)/2;
+          const max = Math.max(0, c.scrollWidth - c.clientWidth);
+          c.scrollTo({left:Math.min(Math.max(target,0),max),behavior:'smooth'});
+        }
+
+        function onDown(e){ if(scale===1) return; dragging=true; const p=e.touches?e.touches[0]:e; sx=p.clientX; sy=p.clientY; stx=tx; sty=ty; }
+        function onMove(e){ if(!dragging) return; const p=e.touches?e.touches[0]:e; tx=stx+(p.clientX-sx); ty=sty+(p.clientY-sy); apply(); }
+        function onUp(){ dragging=false; }
+
+        viewer.addEventListener('mousedown',onDown);
+        viewer.addEventListener('mousemove',onMove);
+        window.addEventListener('mouseup',onUp);
+        viewer.addEventListener('touchstart',onDown,{passive:true});
+        viewer.addEventListener('touchmove',onMove,{passive:true});
+        viewer.addEventListener('touchend',onUp);
+
+        zoomInBtn.addEventListener('click',()=>{ scale=Math.min(scale+0.2,4); apply(); });
+        zoomOutBtn.addEventListener('click',()=>{ scale=Math.max(scale-0.2,1); if(scale===1){tx=0;ty=0;} apply(); });
+        zoomResetBtn.addEventListener('click',()=>{ scale=1; tx=0; ty=0; apply(); });
+
+        btnClose.addEventListener('click',close);
+        btnPrev.addEventListener('click',(e)=>{e.stopPropagation(); prev();});
+        btnNext.addEventListener('click',(e)=>{e.stopPropagation(); next();});
+        dialog.addEventListener('click',(e)=>{ if(e.target===dialog) close(); });
+        window.addEventListener('keydown',(e)=>{ if(!dialog.open) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') prev(); if(e.key==='ArrowRight') next(); });
+
+        renderThumbs();
+      }
+
+      function renderPricing(p){
+        renderInto('#pricingGrid', p.plans, (plan)=>{
+          const highlight=!!plan.highlight;
+          const card=document.createElement('div');
+          card.className=`relative rounded-3xl border border-neutral-700 p-6 ${highlight?'bg-primary-100 text-primary-950 shadow-2xl':'bg-neutral-900'}`;
+          card.innerHTML=`
+            ${highlight?'<span class="absolute -top-3 right-4 rounded-full bg-primary-950 px-3 py-1 text-xs font-bold uppercase tracking-wide text-neutral-50">Más popular</span>':''}
+            <h3 class="text-2xl font-bold ${highlight?'':'text-neutral-50'}">${plan.name}</h3>
+            <p class="mt-2 text-4xl font-extrabold ${highlight?'':'text-neutral-50'}">${plan.price}</p>
+            <ul class="mt-6 space-y-2 text-sm ${highlight?'text-primary-800':'text-neutral-300'}">
+              ${(plan.features||[]).map(f=>`<li class="flex items-start gap-2"><span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-current/60"></span>${f}</li>`).join('')}
+            </ul>
+            <a href="${p.cta?.url||'#'}" class="mt-6 inline-block w-full rounded-xl px-4 py-2 text-center font-semibold transition ${highlight?'bg-primary-950 text-neutral-50 hover:opacity-90':'bg-primary-100 text-primary-900 hover:opacity-90'}">
+              ${(p.cta&&p.cta.title)||'Reservar'}
+            </a>`;
+          return card;
+        });
+      }
+
+      function renderBooking(b){
+        setText('#bookingHeading', b.heading);
+        setText('#bookingIntroText', b.intro + ' ');
+        const phoneEl = document.getElementById('bookingPhone');
+        if(phoneEl){ phoneEl.textContent=b.phone; phoneEl.href=`tel:${b.phone}`; }
+        setAttr('#bookingImage','src',b.image?.src);
+        setAttr('#bookingImage','alt',b.image?.alt||'Interior de la barbería');
+
+        const sel=document.getElementById('bookingServiceSelect');
+        if(sel){ sel.innerHTML=''; (b.services||[]).forEach(t=>{ const o=document.createElement('option'); o.textContent=t; sel.appendChild(o); }); }
+
+        const hours=document.getElementById('bookingHours');
+        if(hours){ hours.innerHTML=''; (b.hours||[]).forEach(h=>{ const li=document.createElement('li'); li.textContent=h; hours.appendChild(li); }); }
+
+        setText('#bookingAddress', b.address);
+        const map=document.getElementById('bookingMapUrl'); if(map) map.href=b.mapUrl;
+        setText('#bookingNote', b.note);
+
+        // demo submit
+        const form=document.getElementById('bookingForm');
+        if(form){
+          form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const fd=new FormData(form);
+            const payload=Object.fromEntries(fd.entries());
+            alert("Solicitud recibida:\n"+JSON.stringify(payload,null,2));
+            form.reset();
+          }, { once:true });
+        }
+      }
+
+      function renderFaq(f){
+        const grid=document.getElementById('faqGrid'); if(!grid) return;
+        grid.innerHTML='';
+        (f.items||[]).forEach(item=>{
+          const det=document.createElement('details');
+          det.className='group rounded-2xl border border-neutral-700 bg-neutral-900 p-5 open:bg-neutral-800';
+          det.innerHTML=`<summary class="cursor-pointer select-none text-base font-semibold text-neutral-100">${item.q}</summary><p class="mt-2 text-sm text-neutral-300">${item.a}</p>`;
+          grid.appendChild(det);
+        });
+      }
+
+      function renderFooter(ft){
+        setText('#footerYear', ft.year);
+        setText('#footerBrand', ft.brand);
+        const wrap=document.getElementById('footerSocial'); if(!wrap) return;
+        wrap.innerHTML=''; (ft.social||[]).forEach(l=>{ const a=document.createElement('a'); a.href=l.url; a.textContent=l.title; a.className='hover:text-primary-50'; wrap.appendChild(a); });
+      }
+
+      function initHeaderToggle(){
+        const btn=document.getElementById('menuBtn'), mm=document.getElementById('mobileMenu'), b1=document.getElementById('b1'), b2=document.getElementById('b2'), b3=document.getElementById('b3');
+        if(!btn||!mm) return;
+        const applyOpen=(open)=>{ mm.classList.toggle('hidden', !open); b1.classList.toggle('translate-y-2', open); b1.classList.toggle('rotate-45', open); b2.classList.toggle('opacity-0', open); b3.classList.toggle('-translate-y-2', open); b3.classList.toggle('-rotate-45', open); };
+        let isOpen=false;
+        btn.addEventListener('click',()=>{ isOpen=!isOpen; applyOpen(isOpen); });
+        document.addEventListener('click',(e)=>{ if(!isOpen) return; const within=e.target.closest('#mobileMenu, #menuBtn'); if(!within){ isOpen=false; applyOpen(false);} });
+      }
+
+      function renderAll(C){
+        renderHeader(C.header);
+        renderHero(C.hero);
+        renderServices(C.services);
+        renderGallery(C.gallery);
+        initLightbox();
+        renderPricing(C.pricing);
+        renderBooking(C.booking);
+        renderFaq(C.faq);
+        renderFooter(C.footer);
+        initHeaderToggle();
+      }
+
+      function start(){
+        // Corre ya; si algo aún no está en el DOM, reintenta un par de veces.
+        let tries=0;
+        (function tick(){
+          try{ renderAll(BARBER_CONTENT); }catch(e){ /* swallow */ }
+          // Validar que al menos Hero y Services pintaron:
+          if(document.getElementById('heroTitle')?.textContent && document.getElementById('servicesGrid')?.children.length){
+            return; // OK
+          }
+          if(++tries>10) return;
+          setTimeout(tick, 80);
+        })();
+      }
+
+      if(document.readyState!=='loading') start();
+      else document.addEventListener('DOMContentLoaded', start, { once:true });
+    })();
+  </script>
+</body>
+</html>
