@@ -4,10 +4,10 @@ export const COMPANY_NAME = "barber shop"; // cámbialo al nombre real
 export const EMAIL = "contact@email.com";
 
 export const PHONE = {
-  e164: "+11234567890",               // canónico (E.164)
-  display: "+1 (123) 456-7890",       // lo que ve el usuario
-  tel: "tel:+11234567890",            // link directo
-  whatsapp: "https://wa.me/11234567890", // sin "+"
+  e164: "+19566385344",
+  display: "+1 (956) 638.5344",
+  tel: "tel:+19566385344",
+  whatsapp: "https://wa.me/19566385344",
 } as const;
 
 // Compat (por si algo viejo lo usa)
