@@ -21,7 +21,8 @@ const getInitialDark = () => {
 
 export const Header: React.FC<HeaderProps> = ({ content }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dark, setDark] = useState(getInitialDark);
+  // const [dark, setDark] = useState(getInitialDark);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -40,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
             src={content.logo.src}
             alt={content.logo.alt || content.brand}
             title={content.logo.title}
-            className="h-9 w-9 shrink-0 rounded-lg object-contain"
+            className="h-12 w-12 shrink-0 rounded-lg object-contain"
             loading="eager"
           />
           <span className="text-lg font-semibold tracking-wide text-fg">

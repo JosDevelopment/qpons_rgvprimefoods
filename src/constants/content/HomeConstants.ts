@@ -22,7 +22,7 @@ export const FALLBACK_HOME_HERO_CONTENT: HomeHeroContentType = {
   description:
     "Traditional Mexican-style beef barbacoa and pork carnitas, fully cooked by specialists, vacuum-sealed and delivered with consistent flavor. Save 8–12 hours of prep, reduce kitchen complexity, and serve faster during peak hours.",
   image: {
-    src: "/img/hero.png",
+    src: "/img/hero.jpg",
     alt: "Ready-to-serve beef barbacoa, shredded and plated",
   },
   ctaPrimary: { url: "#contacto", title: "Contact us" },

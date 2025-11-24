@@ -1,7 +1,7 @@
 // data.ts  (business constants)
 
-export const COMPANY_NAME = "barber shop"; // cámbialo al nombre real
-export const EMAIL = "contact@email.com";
+export const COMPANY_NAME = "RGV Prime Foods"; // cámbialo al nombre real
+export const EMAIL = "orders@rgvprimefoods.vip";
 
 export const PHONE = {
   e164: "+19566385344",
