@@ -28,10 +28,23 @@ function App() {
     <>
       <Header content={FALLBACK_HEADER_CONTENT} />
 
-      <HomeHero content={content.homeHeroContent} />
-      <HomeServices content={content.homeServicesContent} />
+      <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg.jpg')] bg-cover bg-center bg-fixed">
+        <div className="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true" />
+        <div className="relative">
+          <HomeHero content={content.homeHeroContent} />
+          <HomeServices content={content.homeServicesContent} />
+        </div>
+      </div>
+
       <HomeGallary content={content.homeGallaryContent} />
-      <HomePricing content={content.homePricingContent} />
+
+      <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg.jpg')] bg-cover bg-center bg-fixed">
+        <div className="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true" />
+        <div className="relative">
+          <HomePricing content={content.homePricingContent} />
+        </div>
+      </div>
+
       <HomeFaq content={content.homeFAQContent} />
       <HomeContact content={content.homeContactContent} />
       <Footer content={FALLBACK_FOOTER_CONTENT} />

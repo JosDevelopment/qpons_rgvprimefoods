@@ -17,64 +17,60 @@ import { COMPANY_NAME, PHONE, EMAIL } from "../data";
    HomeHero (ENGLISH)
    ======================= */
 export const FALLBACK_HOME_HERO_CONTENT: HomeHeroContentType = {
-  title: "Authentic slow-cooked meats.",
-  highlight: "Ready to serve.",
+  title: "Foodservice Product Line.",
+  highlight: "Ready-to-Serve.",
   description:
-    "Traditional Mexican-style beef barbacoa and pork carnitas, fully cooked by specialists, vacuum-sealed and delivered with consistent flavor. Save 8–12 hours of prep, reduce kitchen complexity, and serve faster during peak hours.",
+    "Optimize your operation with ready-to-serve barbacoa, pork carnitas, menudo, and pepper pastes. A smart strategy for maximum efficiency and cost savings—standardize quality and significantly increase profitability.",
   image: {
     src: "/img/hero.jpg",
-    alt: "Ready-to-serve beef barbacoa, shredded and plated",
+    alt: "Ready-to-serve foodservice products (barbacoa, carnitas) plated with salsas",
   },
   ctaPrimary: { url: "#contacto", title: "Contact us" },
   ctaSecondary: { url: "#precios", title: "See products" },
-  badges: [
-    "Fully cooked • heat & serve",
-    "Fresh shelf life: 45 days",
-    "Frozen shelf life: 1 year",
-  ],
+  badges: ["FDA", "HACCP Certified", "cGMP"],
 } as const;
 
 /* =======================
    HomeServices (ENGLISH)
    ======================= */
 export const FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = {
-  heading: "Why Ready-to-Serve Works",
-  cta: { url: "#precios", title: "View product specs →" },
+  heading: "Operational and Logistical Advantages",
+  cta: { url: "#precios", title: "View product line →" },
   items: [
     {
-      title: "Time & Labor Savings",
+      title: "Savings in Labor and Preparation Time",
       desc:
-        "Eliminate 8–12 hours of cooking. Your team can focus on service, plating, and customer experience instead of long prep shifts.",
+        "Significantly reduced preparation processes and times—fewer working hours and faster service.",
       img: {
         src: "/img/labor.png",
-        alt: "Shredded slow-cooked meat ready to serve",
+        alt: "Reduced prep time with ready-to-serve products",
       },
     },
     {
-      title: "Operational Simplicity",
+      title: "No Reliance on Specialized Cooks or Chefs",
       desc:
-        "No long or complicated processes to supervise. You don’t need highly specialized cooks to deliver traditional results every day.",
+        "No reliance on specialized cooks or chefs. Standardize quality and deliver consistent, guaranteed traditional flavor.",
       img: {
         src: "/img/beef-package.jpg",
-        alt: "Beef barbacoa packaged and ready for service",
+        alt: "Standardized ready-to-serve barbacoa for consistent results",
       },
     },
     {
-      title: "Consistent Quality & Food Safety",
+      title: "Products Ready to Heat and Serve",
       desc:
-        "Standardized flavor, texture, and doneness every batch. Produced in controlled facilities with full sanitary compliance and traceability.",
+        "Products ready to heat and serve—improve speed of service and keep a consistent professional presentation on every plate.",
       img: {
         src: "/img/vacuum-pork.jpg",
-        alt: "Fully cooked pork carnitas in vacuum-sealed packaging",
+        alt: "Ready-to-heat-and-serve pork carnitas",
       },
     },
     {
-      title: "Logistics & Scalability",
+      title: "Simple and Easy Storage",
       desc:
-        "Vacuum-sealed, refrigerated product for easy storage and multi-branch distribution. Scale volumes without expanding staff or kitchen space.",
+        "Simple and Easy storage for smoother distribution and day-to-day operations.",
       img: {
         src: "/img/product-ready.jpg",
-        alt: "Case-ready product for distribution",
+        alt: "Foodservice products designed for simple storage and distribution",
       },
     },
   ],
@@ -84,10 +80,10 @@ export const FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = {
    HomeGallary (ENGLISH)
    ======================= */
 export const FALLBACK_HOME_GALLARY_CONTENT: HomeGallaryContentType = {
-  heading: "Gallery",
+  heading: "Most Popular",
   images: [
-    { src: "/img/info_beef_carnitas.jpg", alt: "Beef barbacoa product sheet and packaging" },
-    { src: "/img/info_pork_carnitas.jpg", alt: "Pork carnitas product sheet and packaging" },
+    { src: "/img/info_beef_carnitas.jpg", alt: "Cheek Meat Barbacoa" },
+    { src: "/img/info_pork_carnitas.jpg", alt: "Pork Carnitas" },
   ],
 } as const;
 
@@ -95,17 +91,17 @@ export const FALLBACK_HOME_GALLARY_CONTENT: HomeGallaryContentType = {
    HomePricing (ENGLISH)
    ======================= */
 export const FALLBACK_HOME_PRICING_CONTENT: HomePricingContentType = {
-  heading: "Products & Specs",
-  cta: { url: "#contacto", title: "Request wholesale pricing" },
+  heading: "Foodservice Product Line (Ready-to-Serve)",
+  cta: { url: "#contacto", title: "Request information" },
   plans: [
     {
-      name: "Beef Barbacoa",
+      name: "Barbacoa (Cheek Meat / Mix 60-40%)",
       price: "Request a quote",
       features: [
-        "Net weight per unit: ~5–7 lbs",
-        "Case net weight: 10.5 lbs (gross 11.3 lbs)",
-        "Case dimensions: 18\" × 12\" × 4\"",
-        "Fresh shelf life: 45 days | Frozen: 1 year",
+        "Cheek Meat & Beef Barbacoa Mix 60-40% — Case: 10 - 12.5 lb.",
+        "Barbacoa Cheek Meat — Case: 10 - 12.5 lb.",
+        "Ready-to-serve product",
+        "Consistent, guaranteed traditional flavor.",
       ],
     },
     {
@@ -114,20 +110,20 @@ export const FALLBACK_HOME_PRICING_CONTENT: HomePricingContentType = {
       highlight: true,
       badge: "Most Popular",
       features: [
-        "Fully cooked, traditional Mexican-style carnitas",
-        "Net weight per unit: ~5–7 lbs",
-        "Case net weight: 10.5 lbs (gross 11.3 lbs)",
-        "Fresh shelf life: 45 days | Frozen: 1 year",
+        "Pork Carnitas — Case: 10 - 10.5 lb.",
+        "Products ready to heat and serve.",
+        "Faster service.",
+        "Higher profitability per serving.",
       ],
     },
     {
-      name: "Distribution Packs",
-      price: "Custom volumes",
+      name: "Menudo & Pepper Pastes",
+      price: "Request a quote",
       features: [
-        "90 cases per pallet",
-        "9 cases per layer",
-        "Vacuum-sealed, keep refrigerated",
-        "Ideal for multi-branch restaurants & catering",
+        "Menudo (Beef Tripe Stew) — Case: 10 - 12 lb.",
+        "Green Jalapeño Roasted Pepper Paste",
+        "Green Jalapeño Pepper Paste • Habanero Pepper Paste",
+        "Red Jalapeño Roasted Pepper Paste • Tomatillo Paste",
       ],
     },
   ],
@@ -139,15 +135,15 @@ export const FALLBACK_HOME_PRICING_CONTENT: HomePricingContentType = {
    ======================= */
 
 export const FALLBACK_HOME_CONTACT_CONTENT: HomeContactSectionContentType = {
-  heading: "Contact us",
+  heading: "For more information",
   intro:
-    "Reach out and we’ll confirm your order or partnership by WhatsApp. If you prefer, call us at",
+    "Call, WhatsApp, or email us for orders and product information. If you prefer, call us at",
   phone: PHONE.display,
 
   image: {
     src: "/img/contact.png",
-    alt: `${COMPANY_NAME} ready-to-serve meats`,
-    title: `${COMPANY_NAME} — logistics and distribution`,
+    alt: `${COMPANY_NAME} foodservice products ready-to-serve`,
+    title: `${COMPANY_NAME} — We Sell Solutions, You Buy Delicious Results`,
   },
 
   contactLinks: [
@@ -156,7 +152,7 @@ export const FALLBACK_HOME_CONTACT_CONTENT: HomeContactSectionContentType = {
     { url: `mailto:${EMAIL}`, title: EMAIL },
   ],
 
-  hours: ["Mon–Fri: 10:00–20:00", "Sat: 10:00–18:00", "Sun: Closed"],
+  hours: ["Hours: Not listed"],
 
   // ===== SUCURSALES (OPCIONAL) =====
   // branches: [
@@ -189,7 +185,6 @@ export const FALLBACK_HOME_CONTACT_CONTENT: HomeContactSectionContentType = {
   },
 } as const;
 
-
 /* =======================
    HomeFAQ (ENGLISH)
    ======================= */
@@ -198,19 +193,19 @@ export const FALLBACK_HOME_FAQ_CONTENT: HomeFaqContentType = {
   faqs: [
     {
       q: "How do I prepare your products?",
-      a: "They arrive fully cooked, vacuum-sealed, and refrigerated. Just reheat, plate, and serve — no long cooking or supervision needed.",
+      a: "Products are ready to heat and serve.",
     },
     {
-      q: "What are the weights and case specs?",
-      a: "Each unit is ~5–7 lbs. Case net weight is 10.5 lbs (gross 11.3 lbs). Case size is 18\" × 12\" × 4\". Pallets carry 90 cases (9 per layer).",
+      q: "What are the case weights?",
+      a: "Barbacoa (Cheek Meat or Mix 60-40%): Case 10 - 12.5 lb. Pork Carnitas: Case 10 - 10.5 lb. Menudo (Beef Tripe Stew): Case 10 - 12 lb.",
     },
     {
-      q: "How long is the shelf life?",
-      a: "Keep refrigerated. Fresh shelf life is 45 days. Frozen shelf life is up to 1 year. Use-by dates are printed on each package.",
+      q: "What pepper pastes do you offer?",
+      a: "Green Jalapeño Roasted Pepper Paste, Green Jalapeño Pepper Paste, Habanero Pepper Paste, Red Jalapeño Roasted Pepper Paste, and Tomatillo Paste.",
     },
     {
-      q: "How can I contact you for wholesale pricing?",
-      a: `Call us at ${PHONE.display}, message us on WhatsApp, or email ${EMAIL}. We’ll reply with volumes, delivery options, and a custom quote.`,
+      q: "How can I contact you for more information?",
+      a: `Call us at ${PHONE.display}, message us on WhatsApp, or email ${EMAIL}.`,
     },
   ],
 } as const;

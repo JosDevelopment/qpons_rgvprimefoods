@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-empty */
 'use client';
 
@@ -9,20 +8,20 @@ interface HeaderProps {
   content: HeaderContentType;
 }
 
-const getInitialDark = () => {
-  if (typeof window === "undefined") return false;
-  try {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") return true;
-    if (saved === "light") return false;
-  } catch {}
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
-};
+// const getInitialDark = () => {
+//   if (typeof window === "undefined") return false;
+//   try {
+//     const saved = localStorage.getItem("theme");
+//     if (saved === "dark") return true;
+//     if (saved === "light") return false;
+//   } catch {}
+//   return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+// };
 
 export const Header: React.FC<HeaderProps> = ({ content }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   // const [dark, setDark] = useState(getInitialDark);
-  const [dark, setDark] = useState(true);
+  const [dark,] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -31,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
     } catch {}
   }, [dark]);
 
-  const toggleDark = () => setDark(v => !v);
+  // const toggleDark = () => setDark(v => !v);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-bg/70 border-b border-border">
