@@ -82,8 +82,11 @@ export const FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = {
 export const FALLBACK_HOME_GALLARY_CONTENT: HomeGallaryContentType = {
   heading: "Most Popular",
   images: [
-    { src: "/img/info_beef_carnitas.jpg", alt: "Cheek Meat Barbacoa" },
-    { src: "/img/info_pork_carnitas.jpg", alt: "Pork Carnitas" },
+    { src: "/img/gallery1.png", alt: "Cheek Meat Barbacoa" },
+    { src: "/img/gallery2.png", alt: "Cheek Meat Barbacoa" },
+    { src: "/img/gallery3.png", alt: "Cheek Meat Barbacoa" },
+    { src: "/img/gallery4.png", alt: "Cheek Meat Barbacoa" },
+    { src: "/img/gallery5.png", alt: "Cheek Meat Barbacoa" },
   ],
 } as const;
 
