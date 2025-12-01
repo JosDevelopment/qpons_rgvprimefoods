@@ -47,12 +47,12 @@ export const FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = {
       },
     },
     {
-      title: "No Reliance on Specialized Cooks or Chefs",
+      title: "Sanitary Production & Processing",
       desc:
-        "No reliance on specialized cooks or chefs. Standardize quality and deliver consistent, guaranteed traditional flavor.",
+        "Controlled processing lines with trained staff and stainless-steel equipment to keep quality consistent and meet food-safety standards.",
       img: {
-        src: "/img/beef-package.jpg",
-        alt: "Standardized ready-to-serve barbacoa for consistent results",
+        src: "/img/processing-floor.jpg",
+        alt: "Workers processing meat on stainless-steel tables in a food production facility",
       },
     },
     {
@@ -65,12 +65,12 @@ export const FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = {
       },
     },
     {
-      title: "Simple and Easy Storage",
+      title: "Vacuum-Sealed, Chilled Inventory",
       desc:
-        "Simple and Easy storage for smoother distribution and day-to-day operations.",
+        "Vacuum-packed proteins and bagged sauces stored under refrigeration for longer shelf life, easy portioning, and batch traceability.",
       img: {
-        src: "/img/product-ready.jpg",
-        alt: "Foodservice products designed for simple storage and distribution",
+        src: "/img/vacuum-sealed-inventory.jpg",
+        alt: "Refrigerated case with vacuum-sealed meat cuts and packaged sauces",
       },
     },
   ],

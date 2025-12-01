@@ -28,13 +28,13 @@ function App() {
     <>
       <Header content={FALLBACK_HEADER_CONTENT} />
 
-      <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg.jpg')] bg-cover bg-center bg-fixed">
-        <div className="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true" />
+      <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg1.jpg')] bg-cover bg-center bg-fixed">
+        <div className="absolute inset-0 bg-black/40 pointer-events-none" aria-hidden="true" />
         <div className="relative">
           <HomeHero content={content.homeHeroContent} />
-          <HomeServices content={content.homeServicesContent} />
         </div>
       </div>
+      <HomeServices content={content.homeServicesContent} />
 
       <HomeGallary content={content.homeGallaryContent} />
 
