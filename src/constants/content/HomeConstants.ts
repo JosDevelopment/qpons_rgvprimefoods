@@ -17,12 +17,14 @@ import { COMPANY_NAME, PHONE, EMAIL } from "../data";
    HomeHero (ENGLISH)
    ======================= */
 export const FALLBACK_HOME_HERO_CONTENT: HomeHeroContentType = {
+  eslogan: '“ We Sell Solutions, You Buy Delicious Results ”',
+  eslogan2: '“The authentic quality and flavor of Mexico in every bite”',
   title: "Foodservice Product Line.",
   highlight: "Ready-to-Serve.",
   description:
     "Optimize your operation with ready-to-serve barbacoa, pork carnitas, menudo, and pepper pastes. A smart strategy for maximum efficiency and cost savings—standardize quality and significantly increase profitability.",
   image: {
-    src: "/img/hero.jpg",
+    src: "/img/logo.png",
     alt: "Ready-to-serve foodservice products (barbacoa, carnitas) plated with salsas",
   },
   ctaPrimary: { url: "#contacto", title: "Contact us" },
@@ -86,7 +88,6 @@ export const FALLBACK_HOME_GALLARY_CONTENT: HomeGallaryContentType = {
     { src: "/img/gallery2.png", alt: "Cheek Meat Barbacoa" },
     { src: "/img/gallery3.png", alt: "Cheek Meat Barbacoa" },
     { src: "/img/gallery4.png", alt: "Cheek Meat Barbacoa" },
-    { src: "/img/gallery5.png", alt: "Cheek Meat Barbacoa" },
   ],
 } as const;
 

@@ -2,6 +2,8 @@ import type { ImageType, LinkType } from "./globalTypes";
 
 // HomeHero
 export interface HomeHeroContentType {
+  eslogan?: string;
+  eslogan2?: string;
   title: string;
   highlight: string;
   description: string;
