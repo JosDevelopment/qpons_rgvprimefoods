@@ -13,7 +13,7 @@ const HomeServices: React.FC<HomeServicesProps> = ({ content, className = '' }) 
   const { heading, cta, items } = content;
 
   return (
-    <section id="servicios" className={`py-20 md:py-24 ${className}`}>
+    <section id="benefits" className={`py-20 md:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-4">
         <div className="mb-10 flex items-end justify-between">
           <h2 className="text-3xl font-bold text-fg">{heading}</h2>

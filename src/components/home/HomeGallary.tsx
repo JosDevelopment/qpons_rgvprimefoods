@@ -35,7 +35,7 @@ const HomeGallary: React.FC<HomeGallaryProps> = ({ content, className = '' }) =>
 
   return (
     <section
-      id="galeria"
+      id="gallery"
       className={`relative border-y border-border bg-surface py-20 md:py-24 ${className}`}
     >
       {/* Decor “barber pole” superior sutil */}

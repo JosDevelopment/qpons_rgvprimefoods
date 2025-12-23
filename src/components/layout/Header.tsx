@@ -3,25 +3,17 @@
 
 import React, { useEffect, useState } from "react";
 import type { HeaderContentType } from "../../types/content/globalTypes";
+import { toggleLanguage, useLanguage } from "../../lib/i18n";
 
 interface HeaderProps {
   content: HeaderContentType;
 }
 
-// const getInitialDark = () => {
-//   if (typeof window === "undefined") return false;
-//   try {
-//     const saved = localStorage.getItem("theme");
-//     if (saved === "dark") return true;
-//     if (saved === "light") return false;
-//   } catch {}
-//   return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
-// };
-
 export const Header: React.FC<HeaderProps> = ({ content }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  // const [dark, setDark] = useState(getInitialDark);
   const [dark,] = useState(true);
+
+  const lang = useLanguage();
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -30,7 +22,8 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
     } catch {}
   }, [dark]);
 
-  // const toggleDark = () => setDark(v => !v);
+  const langAria =
+    lang === "es" ? "Switch language to English" : "Cambiar idioma a Español";
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-bg/70 border-b border-border">
@@ -61,19 +54,22 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          {/* <button
+          {/* Language switch */}
+          <button
             type="button"
-            onClick={toggleDark}
-            aria-label="Cambiar tema"
+            onClick={toggleLanguage}
+            aria-label={langAria}
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-3 py-2 text-sm text-fg hover:bg-surface-2 transition"
+            title={lang === "es" ? "EN" : "ES"}
           >
-            <span
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                dark ? "bg-brand" : "bg-muted"
-              }`}
-            />
-            {dark ? "Dark" : "Light"}
-          </button> */}
+            <span className={lang === "es" ? "text-fg font-semibold" : "text-muted"}>
+              ES
+            </span>
+            <span className="text-muted">|</span>
+            <span className={lang === "en" ? "text-fg font-semibold" : "text-muted"}>
+              EN
+            </span>
+          </button>
 
           <a
             href={content.cta.url}
@@ -84,14 +80,18 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          {/* <button
+          {/* Language switch (mobile) */}
+          <button
             type="button"
-            onClick={toggleDark}
-            aria-label="Cambiar tema"
-            className="rounded-lg border border-border bg-surface p-2 text-fg hover:bg-surface-2 transition"
+            onClick={toggleLanguage}
+            aria-label={langAria}
+            className="rounded-lg border border-border bg-surface px-3 py-2 text-xs text-fg hover:bg-surface-2 transition"
+            title={lang === "es" ? "EN" : "ES"}
           >
-            {dark ? "🌙" : "☀️"}
-          </button> */}
+            <span className={lang === "es" ? "font-semibold" : "text-muted"}>ES</span>
+            <span className="mx-1 text-muted">|</span>
+            <span className={lang === "en" ? "font-semibold" : "text-muted"}>EN</span>
+          </button>
 
           <button
             aria-label="Toggle menu"
@@ -120,6 +120,7 @@ export const Header: React.FC<HeaderProps> = ({ content }) => {
             <a
               href={content.cta.url}
               className="block mt-3 rounded-xl bg-brand px-4 py-2 text-center text-brand-fg font-semibold hover:opacity-90 transition"
+              onClick={() => setMobileOpen(false)}
             >
               {content.cta.title}
             </a>

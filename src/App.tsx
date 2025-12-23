@@ -1,3 +1,4 @@
+// src/App.tsx
 import { useEffect, useState } from 'react'
 import './App.css'
 import HomeHero from './components/home/HomeHero'
@@ -10,18 +11,32 @@ import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { FALLBACK_FOOTER_CONTENT, FALLBACK_HEADER_CONTENT } from './constants/content/GlobalConstants'
 import HomeContact from './components/home/HomeContact'
+import { useLanguage } from './lib/i18n'
 
 type HomeContent = Awaited<ReturnType<typeof getHomeContent>>
 
 function App() {
+  const lang = useLanguage()
   const [content, setContent] = useState<HomeContent | null>(null)
 
   useEffect(() => {
-    getHomeContent().then(setContent).catch(console.error)
-  }, [])
+    let cancelled = false
+    getHomeContent()
+      .then((c) => {
+        if (!cancelled) setContent(c)
+      })
+      .catch(console.error)
+    return () => {
+      cancelled = true
+    }
+  }, [lang])
 
   if (!content) {
-    return <div className="text-center py-10">Cargando…</div>
+    return (
+      <div className="text-center py-10">
+        {lang === 'es' ? 'Cargando…' : 'Loading…'}
+      </div>
+    )
   }
 
   return (
@@ -34,8 +49,8 @@ function App() {
           <HomeHero content={content.homeHeroContent} />
         </div>
       </div>
-      <HomeServices content={content.homeServicesContent} />
 
+      <HomeServices content={content.homeServicesContent} />
       <HomeGallary content={content.homeGallaryContent} />
 
       <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg.jpg')] bg-cover bg-center bg-fixed">

@@ -23,7 +23,7 @@ const HomeContact: React.FC<HomeContactProps> = ({ content, className = '' }) =>
   const hasLocations = !!branches?.length;
 
   return (
-    <section id="contacto" className={`py-20 md:py-24 ${className}`}>
+    <section id="contact" className={`py-20 md:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <div className="mb-10">

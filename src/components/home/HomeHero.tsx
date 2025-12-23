@@ -23,7 +23,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ content, className = '' }) => {
   } = content;
 
   return (
-    <section id="inicio" className={`relative overflow-hidden py-20 md:py-24 ${className}`}>
+    <section id="hero" className={`relative overflow-hidden py-20 md:py-24 ${className}`}>
       {/* fondo decorativo (sin cambiar arquitectura) */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand/10 blur-3xl" />
@@ -52,7 +52,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({ content, className = '' }) => {
             <img
               src={image.src}
               alt={image.alt || 'Hero image'}
-              className="h-[220px] w-full object-contain md:h-[320px]"
+              className="h-[220px] w-full object-contain md:h-[400px]"
               loading="eager"
             />
           </div>

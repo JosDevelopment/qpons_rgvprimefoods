@@ -13,7 +13,7 @@ const HomePricing: React.FC<HomePricingProps> = ({ content, className = '' }) =>
   const { heading, plans, cta } = content;
 
   return (
-    <section id="precios" className={`py-20 md:py-24 ${className}`}>
+    <section id="products" className={`py-20 md:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="mb-10 text-3xl font-bold text-fg">{heading}</h2>
 
