@@ -29,7 +29,7 @@ export interface HomeServicesContentType {
 }
 
 // HomeGallary
-export interface HomeGallaryContentType {
+export interface HomeGalleryContentType {
   heading: string;
   images: ImageType[];
 }

@@ -3,7 +3,7 @@
 import type {
   HomeContactSectionContentType,
   HomeFaqContentType,
-  HomeGallaryContentType,
+  HomeGalleryContentType,
   HomeHeroContentType,
   HomePricingContentType,
   HomeServicesContentType,
@@ -16,7 +16,7 @@ import { getLanguage, subscribeLanguage } from "../../lib/i18n";
 type HomeBundle = {
   hero: HomeHeroContentType;
   services: HomeServicesContentType;
-  gallary: HomeGallaryContentType;
+  gallery: HomeGalleryContentType;
   pricing: HomePricingContentType;
   contact: HomeContactSectionContentType;
   faq: HomeFaqContentType;
@@ -28,21 +28,21 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
       eslogan: '“ We Sell Solutions, You Buy Delicious Results ”',
       eslogan2: '“The authentic quality and flavor of Mexico in every bite”',
       title: "Foodservice Product Line.",
-      highlight: "Ready-to-Serve.",
+      highlight: "Fully Cooked Ready to Heat & Serve.",
       description:
         "Optimize your operation with ready-to-serve barbacoa, pork carnitas, menudo, and pepper pastes. A smart strategy for maximum efficiency and cost savings—standardize quality and significantly increase profitability.",
       image: {
         src: "/img/logo02.png",
         alt: "Ready-to-serve foodservice products (barbacoa, carnitas) plated with salsas",
       },
-      ctaPrimary: { url: "#contacto", title: "Contact us" },
-      ctaSecondary: { url: "#precios", title: "See products" },
+      ctaPrimary: { url: "#contact", title: "Contact us" },
+      ctaSecondary: { url: "#products", title: "See products" },
       badges: ["FDA", "HACCP Certified", "cGMP"],
     },
 
     services: {
       heading: "Operational and Logistical Advantages",
-      cta: { url: "#precios", title: "View product line →" },
+      cta: { url: "#products", title: "View product line →" },
       items: [
         {
           title: "Savings in Labor and Preparation Time",
@@ -77,9 +77,11 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
       ],
     },
 
-    gallary: {
+    gallery: {
       heading: "Most Popular",
       images: [
+        { src: "/video/rgv_nuevo_ingles.mp4", alt: "video" },
+        { src: "/video/prepare_fast.mp4", alt: "video" },
         { src: "/img/gallery1.png", alt: "Cheek Meat Barbacoa" },
         { src: "/img/gallery2.png", alt: "Cheek Meat Barbacoa" },
         { src: "/img/gallery3.png", alt: "Cheek Meat Barbacoa" },
@@ -89,7 +91,7 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
 
     pricing: {
       heading: "Foodservice Product Line (Ready-to-Serve)",
-      cta: { url: "#contacto", title: "Request information" },
+      cta: { url: "#contact", title: "Request information" },
       plans: [
         {
           name: "Barbacoa (Cheek Meat / Mix 60-40%)",
@@ -185,14 +187,14 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
         src: "/img/logo02.png",
         alt: "Productos foodservice listos para servir (barbacoa, carnitas) con salsas",
       },
-      ctaPrimary: { url: "#contacto", title: "Contáctanos" },
-      ctaSecondary: { url: "#precios", title: "Ver productos" },
+      ctaPrimary: { url: "#contact", title: "Contáctanos" },
+      ctaSecondary: { url: "#products", title: "Ver productos" },
       badges: ["FDA", "Certificación HACCP", "cGMP"],
     },
 
     services: {
       heading: "Ventajas operativas y logísticas",
-      cta: { url: "#precios", title: "Ver línea de productos →" },
+      cta: { url: "#products", title: "Ver línea de productos →" },
       items: [
         {
           title: "Ahorro en mano de obra y tiempo de preparación",
@@ -227,9 +229,11 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
       ],
     },
 
-    gallary: {
+    gallery: {
       heading: "Más populares",
       images: [
+        { src: "/video/rgv_nuevo_español.mp4", alt: "video" },
+        { src: "/video/prepare_fast.mp4", alt: "video" },
         { src: "/img/gallery1.png", alt: "Barbacoa de cachete" },
         { src: "/img/gallery2.png", alt: "Barbacoa de cachete" },
         { src: "/img/gallery3.png", alt: "Barbacoa de cachete" },
@@ -239,7 +243,7 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
 
     pricing: {
       heading: "Línea de productos Foodservice (Listos para servir)",
-      cta: { url: "#contacto", title: "Solicitar información" },
+      cta: { url: "#contact", title: "Solicitar información" },
       plans: [
         {
           name: "Barbacoa (Cachete / Mezcla 60-40%)",
@@ -328,7 +332,7 @@ function applyHomeLang(lang: Lang) {
   const bundle = HOME_CONTENT[lang];
   FALLBACK_HOME_HERO_CONTENT = bundle.hero;
   FALLBACK_HOME_SERVICES_CONTENT = bundle.services;
-  FALLBACK_HOME_GALLARY_CONTENT = bundle.gallary;
+  FALLBACK_HOME_GALLERY_CONTENT = bundle.gallery;
   FALLBACK_HOME_PRICING_CONTENT = bundle.pricing;
   FALLBACK_HOME_CONTACT_CONTENT = bundle.contact;
   FALLBACK_HOME_FAQ_CONTENT = bundle.faq;
@@ -338,7 +342,7 @@ function applyHomeLang(lang: Lang) {
 // (son live bindings; cambian cuando cambias el idioma)
 export let FALLBACK_HOME_HERO_CONTENT: HomeHeroContentType = HOME_CONTENT[getLanguage()].hero;
 export let FALLBACK_HOME_SERVICES_CONTENT: HomeServicesContentType = HOME_CONTENT[getLanguage()].services;
-export let FALLBACK_HOME_GALLARY_CONTENT: HomeGallaryContentType = HOME_CONTENT[getLanguage()].gallary;
+export let FALLBACK_HOME_GALLERY_CONTENT: HomeGalleryContentType = HOME_CONTENT[getLanguage()].gallery;
 export let FALLBACK_HOME_PRICING_CONTENT: HomePricingContentType = HOME_CONTENT[getLanguage()].pricing;
 export let FALLBACK_HOME_CONTACT_CONTENT: HomeContactSectionContentType = HOME_CONTENT[getLanguage()].contact;
 export let FALLBACK_HOME_FAQ_CONTENT: HomeFaqContentType = HOME_CONTENT[getLanguage()].faq;
