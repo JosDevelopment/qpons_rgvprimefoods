@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import HomeHero from './components/home/HomeHero'
 import HomeServices from './components/home/HomeServices'
-import HomeGallary from './components/home/HomeGallary'
 import HomePricing from './components/home/HomePricing'
 import HomeFaq from './components/home/HomeFAQ'
 import { getHomeContent } from './lib/content/home'
@@ -12,6 +11,7 @@ import { Footer } from './components/layout/Footer'
 import { FALLBACK_FOOTER_CONTENT, FALLBACK_HEADER_CONTENT } from './constants/content/GlobalConstants'
 import HomeContact from './components/home/HomeContact'
 import { useLanguage } from './lib/i18n'
+import HomeGallery from './components/home/HomeGallery'
 
 type HomeContent = Awaited<ReturnType<typeof getHomeContent>>
 
@@ -51,7 +51,7 @@ function App() {
       </div>
 
       <HomeServices content={content.homeServicesContent} />
-      <HomeGallary content={content.homeGallaryContent} />
+      <HomeGallery content={content.homeGallaryContent} />
 
       <div className="relative overflow-hidden min-h-screen bg-[url('/img/wood_bg.jpg')] bg-cover bg-center bg-fixed">
         <div className="absolute inset-0 bg-black/70 pointer-events-none" aria-hidden="true" />

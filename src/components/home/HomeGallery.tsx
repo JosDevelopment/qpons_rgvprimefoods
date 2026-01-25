@@ -1,13 +1,13 @@
-// HomeGallary.tsx
+// HomeGallery.tsx
 'use client';
 
 import React, { useMemo } from 'react';
 import MediaGallery from '../ui/MediaGallery';
-import type { HomeGallaryContentType } from '../../types/content/homeTypes';
+import type { HomeGalleryContentType } from '../../types/content/homeTypes';
 import type { TemplateMediaType } from '../../types/content/globalTypes';
 
-interface HomeGallaryProps {
-  content: HomeGallaryContentType;
+interface HomeGalleryProps {
+  content: HomeGalleryContentType;
   className?: string;
 }
 
@@ -16,7 +16,7 @@ interface HomeGallaryProps {
  * - mismo layout
  * - colores via tokens semánticos (bg/text/border) + barber vars
  */
-const HomeGallary: React.FC<HomeGallaryProps> = ({ content, className = '' }) => {
+const HomeGallery: React.FC<HomeGalleryProps> = ({ content, className = '' }) => {
   const { heading, images } = content;
 
   const items = useMemo<TemplateMediaType[]>(
@@ -66,4 +66,4 @@ const HomeGallary: React.FC<HomeGallaryProps> = ({ content, className = '' }) =>
   );
 };
 
-export default HomeGallary;
+export default HomeGallery;
