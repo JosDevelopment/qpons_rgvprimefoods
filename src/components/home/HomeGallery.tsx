@@ -1,37 +1,21 @@
-// HomeGallery.tsx
+// src/components/home/HomeGallery.tsx
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import MediaGallery from '../ui/MediaGallery';
 import type { HomeGalleryContentType } from '../../types/content/homeTypes';
-import type { TemplateMediaType } from '../../types/content/globalTypes';
 
 interface HomeGalleryProps {
   content: HomeGalleryContentType;
   className?: string;
 }
 
-/**
- * Galería profesional + Lightbox:
- * - mismo layout
- * - colores via tokens semánticos (bg/text/border) + barber vars
- */
 const HomeGallery: React.FC<HomeGalleryProps> = ({ content, className = '' }) => {
-  const { heading, images } = content;
+  // Ahora destructuramos 'items' en lugar de 'images'
+  const { heading, items } = content;
 
-  const items = useMemo<TemplateMediaType[]>(
-    () =>
-      images.map(
-        (img) =>
-          ({
-            type: 'image',
-            src: img.src,
-            alt: img.alt ?? '',
-            title: img.title ?? img.alt ?? '',
-          } as unknown as TemplateMediaType)
-      ),
-    [images]
-  );
+  // NOTA: Eliminamos el useMemo que transformaba todo a 'image'.
+  // Pasamos los items directamente porque ya vienen con el type ('video' o 'image') correcto.
 
   return (
     <section
@@ -56,10 +40,9 @@ const HomeGallery: React.FC<HomeGalleryProps> = ({ content, className = '' }) =>
       <div className="mx-auto max-w-7xl px-4">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-3xl font-bold text-fg">{heading}</h2>
-          <span className="hidden h-[3px] w-32 rounded-full bg-gradient-to-r from-brand-strong via-accent-solid to-brand-strong md:inline-block" />
         </div>
 
-        {/* Mosaic + Lightbox */}
+        {/* Mosaic + Lightbox + Videos */}
         <MediaGallery items={items} />
       </div>
     </section>

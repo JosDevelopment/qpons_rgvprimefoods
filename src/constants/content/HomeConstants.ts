@@ -79,13 +79,19 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
 
     gallery: {
       heading: "Most Popular",
-      images: [
-        { src: "/video/rgv_nuevo_ingles.mp4", alt: "video" },
-        { src: "/video/prepare_fast.mp4", alt: "video" },
-        { src: "/img/gallery1.png", alt: "Cheek Meat Barbacoa" },
-        { src: "/img/gallery2.png", alt: "Cheek Meat Barbacoa" },
-        { src: "/img/gallery3.png", alt: "Cheek Meat Barbacoa" },
-        { src: "/img/gallery4.png", alt: "Cheek Meat Barbacoa" },
+      items: [
+        {
+          type: 'video',
+          src: "/video/rgv_nuevo_ingles.mp4",
+        },
+        {
+          type: 'video',
+          src: "/video/prepare_fast.mp4",
+        },
+        { type: 'image', src: "/img/gallery1.png", alt: "Cheek Meat Barbacoa" },
+        { type: 'image', src: "/img/gallery2.png", alt: "Cheek Meat Barbacoa" },
+        { type: 'image', src: "/img/gallery3.png", alt: "Cheek Meat Barbacoa" },
+        { type: 'image', src: "/img/gallery4.png", alt: "Cheek Meat Barbacoa" },
       ],
     },
 
@@ -231,13 +237,19 @@ const HOME_CONTENT: Record<Lang, HomeBundle> = {
 
     gallery: {
       heading: "Más populares",
-      images: [
-        { src: "/video/rgv_nuevo_español.mp4", alt: "video" },
-        { src: "/video/prepare_fast.mp4", alt: "video" },
-        { src: "/img/gallery1.png", alt: "Barbacoa de cachete" },
-        { src: "/img/gallery2.png", alt: "Barbacoa de cachete" },
-        { src: "/img/gallery3.png", alt: "Barbacoa de cachete" },
-        { src: "/img/gallery4.png", alt: "Barbacoa de cachete" },
+      items: [
+        {
+          type: 'video',
+          src: "/video/rgv_nuevo_español.mp4",
+        },
+        {
+          type: 'video',
+          src: "/video/prepare_fast.mp4",
+        },
+        { type: 'image', src: "/img/gallery1.png", alt: "Barbacoa de cachete" },
+        { type: 'image', src: "/img/gallery2.png", alt: "Barbacoa de cachete" },
+        { type: 'image', src: "/img/gallery3.png", alt: "Barbacoa de cachete" },
+        { type: 'image', src: "/img/gallery4.png", alt: "Barbacoa de cachete" },
       ],
     },
 

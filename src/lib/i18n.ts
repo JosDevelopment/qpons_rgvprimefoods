@@ -69,6 +69,7 @@ export function setLanguage(lang: Lang) {
 
 export function toggleLanguage() {
   setLanguage(currentLang === "es" ? "en" : "es");
+  window.location.reload()
 }
 
 export function subscribeLanguage(listener: () => void) {

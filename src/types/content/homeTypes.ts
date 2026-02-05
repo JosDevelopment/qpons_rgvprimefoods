@@ -1,4 +1,4 @@
-import type { ImageType, LinkType } from "./globalTypes";
+import type { ImageType, LinkType, TemplateMediaType } from "./globalTypes";
 
 // HomeHero
 export interface HomeHeroContentType {
@@ -31,7 +31,8 @@ export interface HomeServicesContentType {
 // HomeGallary
 export interface HomeGalleryContentType {
   heading: string;
-  images: ImageType[];
+  // Cambiamos 'images: ImageType[]' por 'items' que soporta video e imagen
+  items: TemplateMediaType[]; 
 }
 
 

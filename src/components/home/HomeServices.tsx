@@ -57,15 +57,6 @@ const HomeServices: React.FC<HomeServicesProps> = ({ content, className = '' }) 
                 <p className="text-sm text-muted">{s.desc}</p>
               </div>
 
-              {/* Línea decorativa estilo barber pole */}
-              <div
-                aria-hidden
-                className="h-1 opacity-60"
-                style={{
-                  background:
-                    'linear-gradient(90deg, var(--color-barber-1), var(--color-barber-2), var(--color-barber-3))',
-                }}
-              />
             </article>
           ))}
         </div>

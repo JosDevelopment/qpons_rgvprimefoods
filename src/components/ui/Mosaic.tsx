@@ -25,7 +25,7 @@ export default function Mosaic({ images, openLightbox }: MosaicProps) {
             onClick={() => openLightbox(idx)}
             className={[
               'group relative cursor-pointer overflow-hidden rounded-2xl',
-              'border border-primary-200/60 bg-white shadow-sm',
+              'border border-primary-200/60 bg-black shadow-sm',
               'transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none',
               'focus-visible:ring-2 focus-visible:ring-primary-500/60',
             ].join(' ')}
